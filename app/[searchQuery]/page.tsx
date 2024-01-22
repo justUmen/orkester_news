@@ -4,6 +4,7 @@ import { ErrorType, NewsArticle, NewsData } from "@/app/types/newsInterface";
 import { useEffect, useState } from "react";
 import CardNews from "../components/CardNews";
 import { PageSkeleton } from "../skeletons";
+import LoadMoreNews from "../components/LoadMoreNews";
 
 export default function Page({ params }: { params: { searchQuery: string } }) {
   const searchQuery: string = params.searchQuery;
@@ -36,6 +37,7 @@ export default function Page({ params }: { params: { searchQuery: string } }) {
       {newsArticles?.map((item: NewsArticle, index: number) => (
         <CardNews key={`${item.title}`} news={item} index={index} />
       ))}
+      {!isLoading && <LoadMoreNews extraSearch={searchQuery} />}
     </>
   );
 }
