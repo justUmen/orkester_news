@@ -1,29 +1,57 @@
-# Redux Toolkit TypeScript Example
+# Infininews basics
 
-This example shows how to integrate Next.js with [Redux Toolkit](https://redux-toolkit.js.org).
+## Commits details with screenshots :
 
-The **Redux Toolkit** is a standardized way to write Redux logic (create actions and reducers, setup the store with some default middlewares like redux devtools extension). This example demonstrates each of these features with Next.js
+### Commit 0 : Initial commit from Create Next App
 
-## Deploy your own
+...
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+### Commit 1 : Basic Redux Username custom hooks + test
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-redux&project-name=with-redux&repository-name=with-redux)
+![...](./SCREENSHOTS/1.png)
 
-## How to use
+### Commit 2 : Add MaterialUI + Test button
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+![...](./SCREENSHOTS/2.png)
 
-```bash
-npx create-next-app --example with-redux with-redux-app
-```
+### Commit 3 : NewsAPI Server Actions + typescript types
 
-```bash
-yarn create next-app --example with-redux with-redux-app
-```
+![...](./SCREENSHOTS/3.png)
 
-```bash
-pnpm create next-app --example with-redux with-redux-app
-```
+### Commit 4 : Dynamic Routing [searchquery], API call test /interpol
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+![...](./SCREENSHOTS/4.png)
+
+### Commit 5 : MUI Card for Articles + Grid layout
+
+![...](./SCREENSHOTS/5.png)
+
+### Commit 6 : Side Menu Link with router next/navigation
+
+![...](./SCREENSHOTS/6.1.png)
+![...](./SCREENSHOTS/6.2.png)
+![...](./SCREENSHOTS/6.3.png)
+![...](./SCREENSHOTS/6.4.png)
+
+### Commit 7 : Add skeletons
+
+![...](./SCREENSHOTS/7.1.png)
+![...](./SCREENSHOTS/7.2.png)
+
+### Commit 8 : Infinite news / react-intersection-observer
+
+![...](./SCREENSHOTS/8.png)
+
+
+## TODO ideas, not prod-ready ofc
+
+- better CSS with custom themes and dark mode
+- optimizing/debugging some rerendering
+- real error management. manage disconnect/loose internet...
+- controller in fetch to avoid updating old data
+- branch for Redux saga middleware and more server components
+- check for new duplicate (possible because the list is always updating, no version in API)
+- specific interface for mobile/touchscreens
+- better interface for slow internet
+- load news 1 by 1 with skeleton would be good
+...
