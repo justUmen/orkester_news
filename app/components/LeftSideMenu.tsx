@@ -3,19 +3,44 @@ import React, { useState } from "react";
 import {
   SwipeableDrawer,
   IconButton,
+  Avatar,
+  InputAdornment,
+  TextField,
+  Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import KeyboardReturnIcon from "@mui/icons-material/KeyboardReturn";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import TerminalIcon from "@mui/icons-material/Terminal";
 import LocalPoliceIcon from "@mui/icons-material/LocalPolice";
 import CottageIcon from "@mui/icons-material/Cottage";
 import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
+import SearchBar from "./searchBar";
+import { useGetUsernameValue, useSetUsernameValue } from "@/redux/hooks";
 
 function LeftSideMenu() {
   const [open, setOpen] = useState(false);
   const router = usePathname();
 
+  const getUsernameValue = useGetUsernameValue();
+  const setUsernameValue = useSetUsernameValue();
+
+  // Local state synchronized with the global username state
+  const [localUsername, setLocalUsername] = useState(getUsernameValue);
+
+  const handleInputChangeSyncRedux = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setLocalUsername(event.target.value);
+  };
+
+  const handleUsernameChange = (event: React.FormEvent) => {
+    event.preventDefault();
+    setUsernameValue(localUsername);
+  };
+  
   const toggleDrawer =
     (open: boolean | ((prevState: boolean) => boolean)) =>
     (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -32,6 +57,10 @@ function LeftSideMenu() {
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
+  };
+
+  const closeSideMenu = () => {
+    setOpen(false);
   };
 
   const links = [
@@ -90,7 +119,40 @@ function LeftSideMenu() {
           style={{ display: "flex", flexDirection: "column", height: "100%" }}
         >
           <div>
+            <SearchBar onSearch={closeSideMenu} />
             {list()}
+          </div>
+          <div style={{ marginTop: "auto", padding: "10px" }}>
+            {/* User section */}
+            <Typography variant="h6">Redux :</Typography>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <Avatar>
+                <AccountCircleIcon />
+              </Avatar>
+              <Typography variant="body1">{getUsernameValue}</Typography>
+            </div>
+            <form onSubmit={handleUsernameChange}>
+              <TextField
+                label="Change Name"
+                variant="outlined"
+                size="small"
+                value={localUsername}
+                onChange={handleInputChangeSyncRedux}
+                style={{ marginTop: "10px", width: "100%" }}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="submit"
+                        onClick={handleUsernameChange}
+                      >
+                        <KeyboardReturnIcon />
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </form>
           </div>
         </div>
       </SwipeableDrawer>

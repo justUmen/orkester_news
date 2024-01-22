@@ -1,10 +1,9 @@
-/* Components */
-import TestRedux from "./components/TestRedux";
+import { PageSkeleton } from "./skeletons";
 
 export default function IndexPage() {
-  return <TestRedux />;
+  return <PageSkeleton />;
 }
 
 export const metadata = {
-  title: "Redux Toolkit",
+  title: "Home Skeletons...",
 };
