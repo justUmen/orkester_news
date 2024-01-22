@@ -1,8 +1,8 @@
 /* Components */
-import { Counter } from "./components/Counter/Counter";
+import TestRedux from "./components/TestRedux";
 
 export default function IndexPage() {
-  return <Counter />;
+  return <TestRedux />;
 }
 
 export const metadata = {
