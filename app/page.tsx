@@ -1,9 +1,9 @@
-import { PageSkeleton } from "./skeletons";
+import WelcomePage from "./components/WelcomePage";
 
 export default function IndexPage() {
-  return <PageSkeleton />;
+  return <WelcomePage />;
 }
 
 export const metadata = {
-  title: "Home Skeletons...",
+  title: "Infinity News - Search News",
 };

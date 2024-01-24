@@ -14,7 +14,3 @@ export interface NewsData {
   totalResults: number;
   articles: NewsArticle[];
 }
-
-export interface ErrorType {
-  error: string;
-}

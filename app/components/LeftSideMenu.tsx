@@ -17,7 +17,7 @@ import TerminalIcon from "@mui/icons-material/Terminal";
 import LocalPoliceIcon from "@mui/icons-material/LocalPolice";
 import CottageIcon from "@mui/icons-material/Cottage";
 import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
-import SearchBar from "./searchBar";
+import SearchBar from "./SearchBar";
 import { useGetUsernameValue, useSetUsernameValue } from "@/redux/hooks";
 
 function LeftSideMenu() {
@@ -40,7 +40,7 @@ function LeftSideMenu() {
     event.preventDefault();
     setUsernameValue(localUsername);
   };
-  
+
   const toggleDrawer =
     (open: boolean | ((prevState: boolean) => boolean)) =>
     (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -80,7 +80,8 @@ function LeftSideMenu() {
           <Link href={link.href} key={link.name} passHref>
             <ListItem
               style={{
-                backgroundColor: router === link.href ? "#e3f2fd" : "transparent",
+                backgroundColor:
+                  router === link.href ? "#e3f2fd" : "transparent",
                 color: router === link.href ? "#1565c0" : "black",
                 cursor: "pointer",
                 padding: "10px 20px",
@@ -99,10 +100,17 @@ function LeftSideMenu() {
   );
 
   return (
-    <div>
+    <>
       <IconButton
         onClick={handleToggle}
-        style={{ marginTop: "10px", marginLeft: "10px" }}
+        style={{
+          left: "20px",
+          top: "10px",
+          position: "fixed",
+          zIndex: 1000,
+          backgroundColor: "#1976d2",
+          color: "white",
+        }}
         edge="start"
         color="inherit"
         aria-label="menu"
@@ -156,7 +164,7 @@ function LeftSideMenu() {
           </div>
         </div>
       </SwipeableDrawer>
-    </div>
+    </>
   );
 }
 

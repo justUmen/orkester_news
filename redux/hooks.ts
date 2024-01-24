@@ -6,20 +6,30 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 // CUSTOM HOOKS, to simplify usage
 import { setValueUsername } from "./features/usernameSlice";
+import { setValueTotalSearch } from "./features/totalSearchSlice";
 
-// Set username value
+// Username GET/SET
 export const useSetUsernameValue = () => {
   const dispatch = useAppDispatch();
-
   const setUsernameValue = (value: string) => {
     dispatch(setValueUsername(value));
   };
-
   return setUsernameValue;
 };
-
-// Get username value
 export const useGetUsernameValue = () => {
   const usernameValue = useAppSelector((state) => state.usernameReducer.value);
   return usernameValue;
+};
+
+// TotalSearch GET/SET
+export const useSetTotalSearchValue = () => {
+  const dispatch = useAppDispatch();
+  const setTotalSearchValue = (value: number) => {
+    dispatch(setValueTotalSearch(value));
+  };
+  return setTotalSearchValue;
+};
+export const useGetTotalSearchValue = () => {
+  const totalSearchValue = useAppSelector((state) => state.totalSearchReducer.value);
+  return totalSearchValue;
 };
