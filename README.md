@@ -1,6 +1,6 @@
 # Infininews basics
 
-Less basic example : https://github.com/justUmen/saga_news
+⚠️ Less basic example : https://github.com/justUmen/saga_news
 
 ## Commits details with screenshots :
 
